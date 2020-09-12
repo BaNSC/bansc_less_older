@@ -8,7 +8,6 @@
 
 
 </head>
-
 <style type="text/css">
 	html, body {
   height: 100%;
@@ -135,7 +134,96 @@ nav ul li a {
   display: block;
 }
 
+/* modal part */
+#modal-background {
+  display: none;
+  background-color: #43778c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
+#modal {
+  background-color: #fff;
+  font-family: raleway, arial, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  overflow: scroll;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  font-size: 1.5rem;
+  animation-name: animatemodal;
+  animation-duration: 0.4s;
+}
+
+.yes, .no {
+  border: none;
+  padding: 7px 14px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.yes {
+  background-color: #00ff00;
+}
+
+.no {
+  background-color: #ff0000;
+}
+
+#close-btn {
+  align-self: flex-end;
+}
+
+#close-btn:hover {
+  cursor: pointer;
+  color: #ff0000;
+}
+
+.open-btn {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #16a085 50%);
+  background-size: 200%;
+  background-position: 0 0;
+  display: inline;
+  transition: .5s ease-in-out;
+  font-family: raleway, arial, sans-serif;
+}
+
+/* modal part end */
+
+/* animation part */
+@keyframes animatemodal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+/* animation part end */
+
+/*mobile*/
+.content-desktop {display: block;}
+.content-mobile {display: none;}
+
+@media screen and (max-width: 768px) {
+
+.content-desktop {display: none;}
+.content-mobile {display: block;}
+
+}
 
 
 </style>
@@ -172,49 +260,11 @@ nav ul li a {
   </ul>
 </nav>
 
-	<!-- <table style="position: fixed;
-     margin-left: auto;
-  margin-right: auto;
 
-    padding: 0;
-    width: 100%;
-    height: auto;
-    border-collapse: collapse;
-    text-align: center;
-    z-index: 20;">
-  <tr>
+<div id="img1"  class="card">
+	<img class="content-desktop" id="content" src="https://raw.githubusercontent.com/BaNSC/srcs/master/wall_bansc.png"/ style="width:100%;">
+</div>
 
-    <td style="width: 20vh;">
-    	<h1 align="center" class="entry-title" style="color:white; z-index: 50px;"> 
-			<a href="https://discord.gg/BWDHExA" style="color:#f1f1f1;" class="txt">DISCORD</a>
-		</h1>
-    </td>
-    <td style="width: 20vh;"> 
-    	<h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;"  class="txt" onclick='document.getElementById("content").innerHTML = "Hello JavaScript!"'> About</a>
-		</h1>
-    </td>
-    <td style="width: 20vh;">
-    	<h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_vision.png"'> Vision</a>    
-		</h1>
-    </td>
-    <td style="width: 20vh;">
-    	<h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_activities.png"'> Activities </a>
-		</h1>
-    </td>
-    <td style="width: 5vh;">
-    	
-    </td>
-
-  </tr>
-</table> -->
-
-
-	<div  class="card">
-		<img id="content" src="https://raw.githubusercontent.com/BaNSC/srcs/master/wall_bansc.png"/ style="width:100%;">
-	</div>
 
 <h1 align="center" style="color:white; z-index: 50px;"> 
 
@@ -233,24 +283,47 @@ nav ul li a {
 </h1>
 
 
-<!-- <h1 align="center" class="entry-title" style="color:white; z-index: 50px;"> 
+  <button id="open-btn" class="txt" style="position: fixed; top: 5vh; right: 3vw; background-color: transparent; color: #efefef; outline:0; box-shadow: none;">
+    <!-- <p>	<b>Join BaNSC</b> </p> -->
+    <h1 id="open-btn" class="entry-title" style="color:white; z-index: 50px; text-transform: capitalize;">
+    <a style="color:#f1f1f1;" class="txt"> Join BaNSC</a> </h1>
+  </button>
 
+<div id="modal-background" style="z-index: 70;">
+    <div id="modal">
+    	<p> Join BaNSC</p>
+    	<span id="close-btn">&times;</span>
+    	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd009eXfp70M51018XtuGlmfRo5zrhHSYj5_DBQDeqmmH5NUw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+	</div>
+</div>
 
-	<a href="https://discord.gg/BWDHExA" style="color:#f1f1f1; left: 31%; top: 6%;position: absolute;" class="txt">DISCORD
-	</a>
-</h1>
-<h1 class="entry-title" style="color:white; z-index: 50px;">
-	<a style="color:#f1f1f1; left: 42%; top: 6%; position: absolute;" class="txt" onclick='document.getElementById("content").innerHTML = "Hello JavaScript!"'> About
-	</a>
-</h1>
-<h1 class="entry-title" style="color:white; z-index: 50px;">
-	<a style="color:#f1f1f1; right: 42%; top: 6%; position: absolute;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_vision.png"'> Vision
-	</a>    
-</h1>
+<script type="text/javascript">
+	// select the open-btn button
+let openBtn = document.getElementById('open-btn');
+// select the modal-background
+let modalBackground = document.getElementById('modal-background');
+// select the close-btn 
+let closeBtn = document.getElementById('close-btn');
 
-<h1 class="entry-title" style="color:white; z-index: 50px;">
-	<a style="color:#f1f1f1; right: 31%; top: 6%; position: absolute;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_activities.png"'> Activities
-</h1> -->
+// shows the modal when the user clicks open-btn
+openBtn.addEventListener('click', function() {
+  modalBackground.style.display = 'block';
+});
+
+// hides the modal when the user clicks close-btn
+closeBtn.addEventListener('click', function() {
+  modalBackground.style.display = 'none';
+});
+
+// hides the modal when the user clicks outside the modal
+window.addEventListener('click', function(event) {
+  // check if the event happened on the modal-background
+  if (event.target === modalBackground) {
+    // hides the modal
+    modalBackground.style.display = 'none';
+  }
+});
+</script>
 
 </body>
 </html>
