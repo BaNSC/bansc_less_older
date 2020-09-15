@@ -1,329 +1,320 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>BaNSC</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <head>
+        <title>BaNSC</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    </head>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
 
+        body {
+            background: #2c3e50;
+            display: flex;
+            padding: 6vh;
+        }
 
+        .card {
+            width: 80%;
+            padding: 10px;
+            background: #f1f1f1;
+            margin: auto;
+            transition: 0.3s ease;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+        }
+        .card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            transform: translateY(-10px) scale(1.02);
+        }
+        .card:hover .entry-title {
+            background-position: -100% 0;
+        }
 
-</head>
-<style type="text/css">
-	html, body {
-  height: 100%;
-}
+        .entry-title {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #16a085 50%);
+            background-size: 200%;
+            background-position: 0 0;
+            display: inline;
+            transition: 0.5s ease-in-out;
+            font-family: raleway, arial, sans-serif;
+            text-transform: uppercase;
+        }
+        .entry-title a {
+            color: white;
+            text-decoration: none;
+        }
 
-body {
-  background: #2c3e50;
-  display: flex;
-  padding: 10vh;
-}
+        small {
+            margin-top: 20px;
+            display: block;
+            font-family: raleway, arial, sans-serif;
+            color: white;
+            text-transform: uppercase;
+        }
+        small a {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
 
-.card {
-  width: 80%;
-  padding: 10px;
-  background: #f1f1f1;
-  margin: auto;
-  transition: .3s ease;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}
-.card:hover {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
-  transform: translateY(-10px) scale(1.02);
-}
-.card:hover .entry-title {
-  background-position: -100% 0;
-}
+        span {
+            display: block;
+            margin-top: 10px;
+            font-family: raleway, arial, sans-serif;
+            font-weight: 700;
+            color: #16a085;
+        }
+        span a {
+            color: white;
+        }
 
-.entry-title {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #16a085 50%);
-  background-size: 200%;
-  background-position: 0 0;
-  display: inline;
-  transition: .5s ease-in-out;
-  font-family: raleway, arial, sans-serif;
-  text-transform: uppercase;
-}
-.entry-title a {
-  color: white;
-  text-decoration: none;
-}
+        .iklan {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background: white;
+            width: 200px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        .iklan p {
+            margin: 0 0 15px;
+            line-height: 1.4;
+            color: #333;
+        }
+        .iklan a {
+            background-color: #ff4757;
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-small {
-  margin-top: 20px;
-  display: block;
-  font-family: raleway, arial, sans-serif;
-  color: white;
-  text-transform: uppercase;
-}
-small a {
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-}
+        .txt:hover {
+            text-decoration: underline;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            transform: translateY(-10px) scale(1.02);
+        }
 
-span {
-  display: block;
-  margin-top: 10px;
-  font-family: raleway, arial, sans-serif;
-  font-weight: 700;
-  color: #16a085;
-}
-span a {
-  color: white;
-}
+        @import url(https://fonts.googleapis.com/css?family=Open + Sans);
 
-.iklan {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: white;
-  width: 200px;
-  padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-}
-.iklan p {
-  margin: 0 0 15px;
-  line-height: 1.4;
-  color: #333;
-}
-.iklan a {
-  background-color: #ff4757;
-  color: white;
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 3px;
-  text-decoration: none;
-  font-size: 14px;
+        nav {
+            width: 100%;
+            margin: 0 auto;
+            position: fixed;
+            margin-left: -12vh;
+            z-index: 50;
+        }
 
-}
+        nav ul {
+            text-align: center;
+        }
 
-.txt:hover {
-    text-decoration: underline;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
-  transform: translateY(-10px) scale(1.02);
-}
+        nav ul li {
+            display: inline-block;
+        }
 
+        nav ul li a {
+            padding: 18px;
+            font-family: "Open Sans";
+            text-transform: uppercase;
+            color: rgba(0, 35, 122, 0.5);
+            font-size: 24px;
+            text-decoration: none;
+            display: block;
+        }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+        /* modal part */
+        #modal-background {
+            display: none;
+            background-color: #43778c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
+        #modal {
+            background-color: #fff;
+            font-family: raleway, arial, sans-serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            overflow: scroll;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            font-size: 1.5rem;
+            animation-name: animatemodal;
+            animation-duration: 0.4s;
+        }
 
-nav {
-  width: 100%;
-  margin: 0 auto;
-  position: fixed;
-  margin-left: -12vh;
-  z-index: 50;
-}
+        .yes,
+        .no {
+            border: none;
+            padding: 7px 14px;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
 
-nav ul {
-  text-align: center;
-}
+        .yes {
+            background-color: #00ff00;
+        }
 
-nav ul li {
-  display: inline-block;
-}
+        .no {
+            background-color: #ff0000;
+        }
 
-nav ul li a {
-  padding: 18px;
-  font-family: "Open Sans";
-  text-transform:uppercase;
-  color: rgba(0, 35, 122, 0.5);
-  font-size: 18px;
-  text-decoration: none;
-  display: block;
-}
+        #close-btn {
+            align-self: flex-end;
+        }
 
-/* modal part */
-#modal-background {
-  display: none;
-  background-color: #43778c;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
+        #close-btn:hover {
+            cursor: pointer;
+            color: #ff0000;
+        }
 
-#modal {
-  background-color: #fff;
-  font-family: raleway, arial, sans-serif;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: auto;
-  overflow: scroll;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  font-size: 1.5rem;
-  animation-name: animatemodal;
-  animation-duration: 0.4s;
-}
+        .open-btn {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #16a085 50%);
+            background-size: 200%;
+            background-position: 0 0;
+            display: inline;
+            transition: 0.5s ease-in-out;
+            font-family: raleway, arial, sans-serif;
+        }
 
-.yes, .no {
-  border: none;
-  padding: 7px 14px;
-  font-size: 1rem;
-  border-radius: 5px;
-}
+        /* modal part end */
 
-.yes {
-  background-color: #00ff00;
-}
+        /* animation part */
+        @keyframes animatemodal {
+            from {
+                top: -300px;
+                opacity: 0;
+            }
+            to {
+                top: 50%;
+                opacity: 1;
+            }
+        }
+        /* animation part end */
+    </style>
+    <body onresize="myFunction()">
+        <nav>
+            <ul>
+                <li>
+                    <h1 align="center" class="entry-title" style="color: white; z-index: 50px;">
+                        <a
+                            href="https://discord.gg/BWDHExA"
+                            target="_blank"
+                            style="color: #f1f1f1;"
+                            class="txt"
+                            onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_discord.gif"'
+                        >
+                            DISCORD
+                        </a>
+                    </h1>
+                </li>
+                <li>
+                    <h1 class="entry-title" style="color: white; z-index: 50px;">
+                        <a style="color: #f1f1f1;" id="content" class="txt" onclick='document.getElementById("content").src = "imgs/wall_bansc.png"'> Home</a>
+                    </h1>
+                </li>
+                <li>
+                    <h1 class="entry-title" style="color: white; z-index: 50px;">
+                        <a style="color: #f1f1f1;" class="txt" onclick='document.getElementById("content").src = "imgs/wall_bansc_about.png"'> About</a>
+                    </h1>
+                </li>
+                <li>
+                    <h1 class="entry-title" style="color: white; z-index: 50px;">
+                        <a style="color: #f1f1f1;" class="txt" onclick='document.getElementById("content").src = "imgs/wall_bansc_vision.png"'> Vision</a>
+                    </h1>
+                </li>
+                <li>
+                    <h1 class="entry-title" style="color: white; z-index: 50px;">
+                        <a style="color: #f1f1f1;" class="txt" onclick='document.getElementById("content").src = "imgs/wall_bansc_activities.png"'> Activities </a>
+                    </h1>
+                </li>
+            </ul>
+        </nav>
 
-.no {
-  background-color: #ff0000;
-}
+        <script>
+            function myFunction() {
+                var w = window.outerWidth;
 
-#close-btn {
-  align-self: flex-end;
-}
+                if (w < 500) {
+                    // document.getElementById("content").src = "imgs/mobile_bansc.jpg";
+                    document.getElementByTag("body").style.padding = "2vw";
+                }
+            }
+        </script>
 
-#close-btn:hover {
-  cursor: pointer;
-  color: #ff0000;
-}
+        <div id="img1" class="card">
+            <img id="content" src="imgs/wall_bansc.png" style="width: 100%;" />
+        </div>
 
-.open-btn {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #16a085 50%);
-  background-size: 200%;
-  background-position: 0 0;
-  display: inline;
-  transition: .5s ease-in-out;
-  font-family: raleway, arial, sans-serif;
-}
+        <h1 align="center" style="color: white; z-index: 50px;">
+            <a href="https://www.facebook.com/BaNSCIndia" class="txt" style="color: #f1f1f1; left: 31%; bottom: 6%; position: fixed;"> <i class="fab fa-facebook"></i> </a>
 
-/* modal part end */
+            <a href="https://www.linkedin.com/company/banscindia/" class="txt" style="color: #f1f1f1; left: 42%; bottom: 6%; position: fixed;"> <i class="fab fa-linkedin-in"></i> </a>
 
-/* animation part */
-@keyframes animatemodal {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 50%;
-    opacity: 1;
-  }
-}
-/* animation part end */
+            <a href="https://twitter.com/banscindia" class="txt" style="color: #f1f1f1; right: 42%; bottom: 6%; position: fixed;"> <i class="fab fa-twitter"></i> </a>
 
-/*mobile*/
-.content-desktop {display: block;}
-.content-mobile {display: none;}
+            <a href="https://www.instagram.com/banscindia/" class="txt" style="color: #f1f1f1; right: 31%; bottom: 6%; position: fixed;"> <i class="fab fa-instagram"></i> </a>
+        </h1>
 
-@media screen and (max-width: 768px) {
+        <button id="open-btn" class="txt" style="position: fixed; top: 5vh; right: 3vw; background-color: transparent; color: #efefef; outline: 0; box-shadow: none;">
+            <!-- <p>  <b>Join BaNSC</b> </p> -->
+            <h1 id="open-btn" class="entry-title" style="color: white; z-index: 50px; text-transform: capitalize;">
+                <a style="color: #f1f1f1;" class="txt"> Join BaNSC</a>
+            </h1>
+        </button>
 
-.content-desktop {display: none;}
-.content-mobile {display: block;}
+        <div id="modal-background" style="z-index: 70;">
+            <div id="modal">
+                <p>Join BaNSC</p>
+                <span id="close-btn">&times;</span>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd009eXfp70M51018XtuGlmfRo5zrhHSYj5_DBQDeqmmH5NUw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
 
-}
+        <script type="text/javascript">
+            // select the open-btn button
+            let openBtn = document.getElementById("open-btn");
+            // select the modal-background
+            let modalBackground = document.getElementById("modal-background");
+            // select the close-btn
+            let closeBtn = document.getElementById("close-btn");
 
+            // shows the modal when the user clicks open-btn
+            openBtn.addEventListener("click", function () {
+                modalBackground.style.display = "block";
+            });
 
-</style>
-<body>
+            // hides the modal when the user clicks close-btn
+            closeBtn.addEventListener("click", function () {
+                modalBackground.style.display = "none";
+            });
 
-
-<nav>
-  <ul>
-    <li>
-      <h1 align="center" class="entry-title" style="color:white; z-index: 50px;"> 
-			<a href="https://discord.gg/BWDHExA" target="_blank" style="color:#f1f1f1;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_discord.gif"'>DISCORD</a>
-		</h1>
-    </li>
-    <li>
-      <h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;"  class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/srcs/master/wall_bansc.png"'> Home</a>
-		</h1>
-    </li>
-    <li>
-      <h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;"  class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_about.png"'> About</a>
-		</h1>
-    </li>
-    <li>
-      <h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_vision.png"'> Vision</a>    
-		</h1>
-    </li>
-    <li>
-      <h1 class="entry-title" style="color:white; z-index: 50px;">
-		<a style="color:#f1f1f1;" class="txt" onclick='document.getElementById("content").src = "https://raw.githubusercontent.com/BaNSC/bansc.github.io/master/imgs/wall_bansc_activities.png"'> Activities </a>
-		</h1>
-    </li>
-  </ul>
-</nav>
-
-
-<div id="img1"  class="card">
-	<img class="content-desktop" id="content" src="https://raw.githubusercontent.com/BaNSC/srcs/master/wall_bansc.png"/ style="width:100%;">
-</div>
-
-
-<h1 align="center" style="color:white; z-index: 50px;"> 
-
-	<a href="https://www.facebook.com/BaNSCIndia" class="txt" style="color:#f1f1f1; left: 31%; bottom: 6%;position: absolute;"> <i class="fab fa-facebook"></i>
-	</a>
-
-	<a href="https://www.linkedin.com/company/banscindia/" class="txt" style="color:#f1f1f1; left: 42%; bottom: 6%; position: absolute;"> <i class="fab fa-linkedin-in"></i>
-	</a>
-
-	<a href="https://twitter.com/banscindia" class="txt" style="color:#f1f1f1; right: 42%; bottom: 6%; position: absolute;"> <i class="fab fa-twitter"></i>
-	</a>    
-
-	<a href="https://www.instagram.com/banscindia/" class="txt" style="color:#f1f1f1; right: 31%; bottom: 6%; position: absolute;"> <i class="fab fa-instagram"></i>
-	</a>
-
-</h1>
-
-
-  <button id="open-btn" class="txt" style="position: fixed; top: 5vh; right: 3vw; background-color: transparent; color: #efefef; outline:0; box-shadow: none;">
-    <!-- <p>	<b>Join BaNSC</b> </p> -->
-    <h1 id="open-btn" class="entry-title" style="color:white; z-index: 50px; text-transform: capitalize;">
-    <a style="color:#f1f1f1;" class="txt"> Join BaNSC</a> </h1>
-  </button>
-
-<div id="modal-background" style="z-index: 70;">
-    <div id="modal">
-    	<p> Join BaNSC</p>
-    	<span id="close-btn">&times;</span>
-    	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd009eXfp70M51018XtuGlmfRo5zrhHSYj5_DBQDeqmmH5NUw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-	</div>
-</div>
-
-<script type="text/javascript">
-	// select the open-btn button
-let openBtn = document.getElementById('open-btn');
-// select the modal-background
-let modalBackground = document.getElementById('modal-background');
-// select the close-btn 
-let closeBtn = document.getElementById('close-btn');
-
-// shows the modal when the user clicks open-btn
-openBtn.addEventListener('click', function() {
-  modalBackground.style.display = 'block';
-});
-
-// hides the modal when the user clicks close-btn
-closeBtn.addEventListener('click', function() {
-  modalBackground.style.display = 'none';
-});
-
-// hides the modal when the user clicks outside the modal
-window.addEventListener('click', function(event) {
-  // check if the event happened on the modal-background
-  if (event.target === modalBackground) {
-    // hides the modal
-    modalBackground.style.display = 'none';
-  }
-});
-</script>
-
-</body>
+            // hides the modal when the user clicks outside the modal
+            window.addEventListener("click", function (event) {
+                // check if the event happened on the modal-background
+                if (event.target === modalBackground) {
+                    // hides the modal
+                    modalBackground.style.display = "none";
+                }
+            });
+        </script>
+    </body>
 </html>
